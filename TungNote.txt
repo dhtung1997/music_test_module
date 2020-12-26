@@ -1,0 +1,38 @@
+Way to upload python project to Pypi
+
+
+B1: Tạo project, tạo 1 folder là tên thư viện
+Example: Project test_music_module:
+
+Test_music_project
+——test_music_module
+————__init__.py
+————music.py
+————abcxyz.py
+B2: Tạo file LICENSE.txt trong folder Test_music_project
+	- Tạo file README.md
+	- Tạo file setup.py trong folder Test_music_project
+Example:
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+
+setuptools.setup(
+    name="music_test_module",
+    version="0.0.2",
+    author="DHTung",
+    author_email="dhtung161997@gmail.com",
+    packages=setuptools.find_packages(),
+    url="https://github.com/dhtung1997/music_test_module",
+    python_requires='>3.6',
+)
+B3: Tạo tài khoản github, upload lên github, sau đó tạo 2 tài khoản cho 2 trang pypi.org và test.pypi.org
+B4: cd đến Folder Test_music_project và chạy lệnh:
+python3 setup.py sdist
+python3 setup.py bdist_wheel --universal
+pip3 install twine
+twine upload dist/*
+python3 -m twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
