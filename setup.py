@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="music_test_module",
-    version="0.0.6",
+    version="0.0.7",
     author="DHTung",
     author_email="dhtung161997@gmail.com",
     packages=setuptools.find_packages(),
